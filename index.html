@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<!-- saved from url=(0086)https://live-ssl.cdn.spongecell.com/studio/assets/1227587/original/index.html?eoih52wi -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Campaign Name</title>
+    <script type="text/javascript" src="./spongeapi.min.js"></script>
+    <!-- // <script type="text/javascript" src="assets/testdata.js"></script> -->
+    <link rel="stylesheet" href="./style.css">
+    <script>
+        function spongeInit() {
+            spongeapi.init({
+                type: 'custom',
+                //if not dynamic remove is dynamic
+                isDynamic: true,
+                onReady: spongeReady
+            });
+        }
+
+        function spongeReady() {
+            exit.addEventListener('click', spongeClick);
+            preload();
+        }
+
+        function spongeClick() {
+            spongeapi.openLanding("Creative Landing Page");
+            //            spongeapi.openScreen("Screen Name on Platform");
+        }
+    </script>
+</head>
+
+<body onload="spongeInit()">
+    <div id="main" class="main" style="visibility: visible;">
+        <div id="fFrame" class="fFrame" style="display: none;">
+            <div class="contInline">
+                <div id="copyCont3" class="copyCont3 copyAnim3" style="background-image: url(&quot;https://signal-ssl.cdn.spongecell.com/campaigns/13896/signal_processors/5413/images/1984176/Nat1A.png&quot;);">
+
+                </div>
+                <div id="copyCont4" class="copyCont4 copyAnim4" style="background-image: url(&quot;https://signal-ssl.cdn.spongecell.com/campaigns/13896/signal_processors/5413/images/1984177/Nat1B.png&quot;);">
+
+                </div>
+            </div>
+            <div id="copyCont2" class="copyCont2" style="opacity: 1; display: none;">
+                <div id="copy2" class="copy2" style="background-image: url(&quot;https://signal-ssl.cdn.spongecell.com/campaigns/13896/signal_processors/5413/images/1984175/frameText2.png&quot;);"></div>
+                <div id="head" class="head headMove" style="background-image: url(&quot;assets/head.png&quot;);"></div>
+            </div>
+            <div id="copyCont1" class="copyCont1 classReturn" style="background-image: url(&quot;https://signal-ssl.cdn.spongecell.com/campaigns/13896/signal_processors/5413/images/1984174/itsCold.png&quot;); opacity: 0;">
+
+            </div>
+        </div>
+        <div id="secFrame" class="secFrame" style="opacity: 1;">
+            <div id="bg" class="bg bgAnim2" style="background-image: url(&quot;https://signal-ssl.cdn.spongecell.com/campaigns/13896/signal_processors/5413/images/1984102/bg.jpg&quot;);"></div>
+            <div id="jacket" class="jacket bgAnim2" style="background-image: url(&quot;https://signal-ssl.cdn.spongecell.com/campaigns/13896/signal_processors/5413/images/1984104/jacket.png&quot;);"></div>
+            <div id="logo" class="logo logoAnim" style="background-image: url(&quot;assets/logo.png&quot;);"></div>
+            <div id="cta" class="cta" style="background-image: url(&quot;assets/cta.png&quot;); opacity: 1;"></div>
+            <div id="tagLine" class="tagLine tagLineAnim tagLineAnim2 tagLineAnim22 tagLineAnim3" style="background-image: url(&quot;assets/tagline.png&quot;); opacity: 1;"></div>
+        </div>
+        <!--        <div class="guide"></div>-->
+        <div id="exit" class="exit"></div>
+
+    </div>
+    <script>
+        var url = "",
+            images,
+            loadedImage = 0;
+
+        function preload() {
+
+            images = new Array(
+                //                "assets/bg.jpg"
+                //dynamic get of image
+                spongeapi.getDynamicImage('background_image_300x600'),
+                "assets/head.png",
+                "assets/logo.png",
+                "assets/cta.png",
+                "assets/tagline.png",
+                spongeapi.getDynamicImage('jacket_image_300x600'),
+                spongeapi.getDynamicImage('frameOne_Copy_300x600'),
+                spongeapi.getDynamicImage('frameTwo_Copy_300x600'),
+                spongeapi.getDynamicImage('frameThree_Copy_300x600'),
+                spongeapi.getDynamicImage('frameFour_Copy_300x600')
+                //                spongeapi.getDynamicImage('sample_300x600')
+            );
+
+            for (var i = 0; i < images.length; i++) {
+                imageObj = new Image();
+                imageObj.src = images[i];
+                imageObj.addEventListener("load", iLoad, false)
+            }
+        }
+
+        function iLoad() {
+            loadedImage++;
+            if (images.length == loadedImage) {
+                bg.style.backgroundImage = "url('" + images[0] + "')";
+                head.style.backgroundImage = "url('" + images[1] + "')";
+                logo.style.backgroundImage = "url('" + images[2] + "')";
+                cta.style.backgroundImage = "url('" + images[3] + "')";
+                tagLine.style.backgroundImage = "url('" + images[4] + "')";
+                jacket.style.backgroundImage = "url('" + images[5] + "')";
+                copyCont1.style.backgroundImage = "url('" + images[6] + "')";
+                copy2.style.backgroundImage = "url('" + images[7] + "')";
+                copyCont3.style.backgroundImage = "url('" + images[8] + "')";
+                copyCont4.style.backgroundImage = "url('" + images[9] + "')";
+                init();
+            }
+        }
+
+        function init() {
+            main.style.visibility = "visible";
+            anim1();
+        }
+
+        function anim1() {
+            copyCont1.classList.add('classReturn');
+                        setTimeout(anim2, 2000);
+        }
+
+        function anim2() {
+            copyCont1.style.opacity = 0;
+            setTimeout(anim3, 200);
+        }
+
+        function anim3() {
+            copyCont2.style.opacity = 1;
+            head.classList.add('headMove');
+            setTimeout(anim4, 3000);
+        }
+
+        function anim4() {
+            copyCont2.style.display = "none";
+            setTimeout(anim5, 200);
+        }
+
+        function anim5() {
+            copyCont3.classList.add('copyAnim3');
+            setTimeout(anim6, 2500);
+        }
+
+        function anim6() {
+            copyCont4.classList.add('copyAnim4');
+            setTimeout(anim7, 4000);
+        }
+
+        function anim7() {
+            secFrame.style.opacity = 1;
+            setTimeout(taglineAnim1, 1000);
+        }
+
+        function taglineAnim1() {
+            tagLine.classList.add('tagLineAnim');
+            tagLine.style.opacity = 1;
+            fFrame.style.display = "none";
+            setTimeout(moveNow, 100);
+            setTimeout(taglineAnim2, 200);
+        }
+
+        function taglineAnim2() {
+            tagLine.classList.add('tagLineAnim2');
+            setTimeout(function () {
+                tagLine.classList.add('tagLineAnim22');
+            }, 150);
+
+            setTimeout(taglineAnim3, 300);
+        }
+
+        function extraMe() {
+            bg.classList.add('bgAnim');
+            jacket.classList.add('bgAnim');
+        }
+
+        function taglineAnim3() {
+            tagLine.classList.add('tagLineAnim3');
+            setTimeout(anim8, 500);
+        }
+
+        function moveNow() {
+            bg.classList.add('bgAnim2');
+            jacket.className += " bgAnim2";
+        }
+
+        function taglineAnim4() {
+            bg.classList.add('bgAnim2');
+            jacket.classList.add('bgAnim2');
+            setTimeout(anim8, 500);
+        }
+
+        function anim8() {
+            logo.classList.add('logoAnim');
+            setTimeout(anim9, 500);
+        }
+
+        function anim9() {
+            cta.style.opacity = 1;
+        }
+    </script>
+
+
+</body></html>
